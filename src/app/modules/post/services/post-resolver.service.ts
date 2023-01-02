@@ -4,10 +4,8 @@ import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import Post from '../models/post.model';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class PostResolverService implements Resolve<Post[]>{
+@Injectable()
+export class PostResolverService implements Resolve<Observable<Post[]>> {
   private baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) { }

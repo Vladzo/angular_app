@@ -1,4 +1,7 @@
 .flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 40px;
+    background-color: aqua;
+    align-items: center;
 }

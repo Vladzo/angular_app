@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import Post from 'src/app/models/Post.model';
+import Post from '../../models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -9,4 +9,5 @@ import Post from 'src/app/models/Post.model';
 export class PostComponent {
   @Input()
   post: Post;
+
 }
