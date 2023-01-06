@@ -8,7 +8,7 @@ import Post from '../../models/post.model';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent {
-  posts: Post[] = [{id: 5, title: 'fwfwefew', body: 'wfeewefw', userId: 6}];
+  posts: Post[];
 
   constructor(private acrivatedRoute: ActivatedRoute) {
     this.acrivatedRoute.data.subscribe(data => {      

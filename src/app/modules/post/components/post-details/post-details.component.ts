@@ -23,4 +23,8 @@ export class PostDetailsComponent {
       this.post = state['post'];
     })
   }
+
+  goToComments(): void {
+    this.router.navigate(['comments'], { relativeTo: this.activatedRoute, state: {post: this.post} });
+  }
 }

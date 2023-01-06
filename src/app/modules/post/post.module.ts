@@ -8,12 +8,14 @@ import { PostResolverService } from './services/post-resolver.service';
 import { PostComponent } from './components/post/post.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostService } from './services/post.service';
+import { PostCommentsComponent } from './components/post-comments/post-comments.component';
 
 @NgModule({
   declarations: [
     PostsComponent,
     PostComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    PostCommentsComponent
   ],
   imports: [
     CommonModule,
