@@ -25,6 +25,9 @@ import { PostCommentsComponent } from './components/post-comments/post-comments.
   providers: [
     PostResolverService,
     PostService
+  ],
+  exports: [
+    PostsComponent,
   ]
 })
 export class PostModule { }
