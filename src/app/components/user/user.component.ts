@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import User from 'src/app/models/User.model';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 
 @Component({
   selector: 'app-user',
@@ -11,9 +11,11 @@ export class UserComponent {
   @Input()
   user: User;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private dataTransfer: DataTransferService) {}
 
   goToDetails(): void {
-    this.router.navigate([this.user.id], { relativeTo: this.activatedRoute, state: this.user });
+    this.dataTransfer.setUser(this.user);
+    console.log(this.dataTransfer.getUser());
+    
   }
 }

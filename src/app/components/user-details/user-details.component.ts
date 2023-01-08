@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import User from 'src/app/models/User.model';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,15 +11,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserDetailsComponent {
   user: User;
-  
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
-    this.activatedRoute.params.subscribe(params => {
-      const state = this.router.getCurrentNavigation()?.extras.state as User;
-      if (!state) {
-        this.userService.getUser(params['id']).subscribe(user => this.user = user);
-        return;
-      }
-      this.user = state;
-    })
+
+  @Output()
+  onGetUser = new EventEmitter();
+
+  constructor(private dataTransfer: DataTransferService) {
+    this.dataTransfer.state.subscribe(() => this.user = this.dataTransfer.getUser());
+  };
+  login() {
+    this.onGetUser.emit(this.user);
   }
 }

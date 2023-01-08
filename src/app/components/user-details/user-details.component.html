@@ -1,1 +1,2 @@
-<h2>{{user.email}}<h2>
+<hr>
+<h2 *ngIf="user.email">{{user.email}} <button (click)="login()">Login</button><h2>

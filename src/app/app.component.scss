@@ -2,3 +2,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.header {
+    background-color: aqua;
+    height: 50px;
+}
+
+.header-elem {
+    float: right;
+    margin-right: 20px;
+    font-size: large;
+    text-transform: uppercase;
+}
