@@ -1,0 +1,10 @@
+<form [formGroup]="newFormGroup" (ngSubmit)="save()">
+    <label for="login">Login</label>
+    <input type="text" id="login" [formControl]="loginControl">
+    <div *ngIf="!loginControl.valid">Login is not valid</div>
+
+    <label for="password">Password</label>
+    <input type="text" id="password" [formControl]="passwordControl">
+
+    <button [disabled]="!newFormGroup.valid">Save</button>
+</form>
