@@ -1,20 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import User from 'src/app/models/User.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-reactive-favorite-color',
   templateUrl: './reactive-form.component.html'
 })
-export class FavoriteColorComponent {
-  save() {
-    console.log(this.newFormGroup);
-  }
+export class FavoriteColorComponent implements OnInit {
+  users: User[];
 
-  loginControl = new FormControl('login', [Validators.maxLength(3)]);
-  passwordControl = new FormControl('password');
-  
-  newFormGroup: FormGroup = new FormGroup({
-    login: this.loginControl,
-    password: this.passwordControl
+  sendUsers() {
+    console.log(this.formGroup);
+  }
+  selectControl: FormControl<any> = new FormControl('0');
+
+  formGroup: FormGroup<any> = new FormGroup({
+    selectControl: this.selectControl
   });
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.getUsers().subscribe(users => this.users = users);  
+  }
 }
